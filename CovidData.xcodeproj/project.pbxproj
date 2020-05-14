@@ -130,9 +130,9 @@
 		646945E0246DB99200076EB5 /* MunicipioList */ = {
 			isa = PBXGroup;
 			children = (
-				641AAE8E246DBE1E00231A1D /* MunicipiosListViewModel.swift */,
-				6469459B246D896100076EB5 /* MunicipiosListView.swift */,
 				646945E1246DB9A000076EB5 /* MunicipioRow.swift */,
+				6469459B246D896100076EB5 /* MunicipiosListView.swift */,
+				641AAE8E246DBE1E00231A1D /* MunicipiosListViewModel.swift */,
 			);
 			path = MunicipioList;
 			sourceTree = "<group>";
@@ -140,9 +140,9 @@
 		64945A4D246DEB78004C5D4D /* MunicipioDetail */ = {
 			isa = PBXGroup;
 			children = (
+				647D15FB246DEEBE00D5FB58 /* DayRow.swift */,
 				64945A4B246DEA67004C5D4D /* MunicipioDetail.swift */,
 				648E1794246DF22B0073225E /* MunicipioDetailViewModel.swift */,
-				647D15FB246DEEBE00D5FB58 /* DayRow.swift */,
 			);
 			path = MunicipioDetail;
 			sourceTree = "<group>";

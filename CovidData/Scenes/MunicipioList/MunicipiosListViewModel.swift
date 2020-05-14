@@ -8,25 +8,21 @@ class MunicipiosListViewModel: ObservableObject {
     @Published private (set) var data: [Municipio] = []
     @Published var orderByTotalCases: Bool = false {
         willSet {
-            getMunicipios(orderByTotalCases: newValue)
+            presentMunicipios(orderByTotalCases: newValue)
         }
     }
     
     func getData() {
-        guard data.isEmpty else {  return }
+        guard data.isEmpty else { return }
         service.getData { [weak self] result in
-            self?.getMunicipios(orderByTotalCases: false)
+            self?.presentMunicipios(orderByTotalCases: false)
         }
     }
     
-    func getMunicipios(orderByTotalCases: Bool) {
+    func presentMunicipios(orderByTotalCases: Bool) {
         let data = self.service.getMunicipios(by: orderByTotalCases ? .totalCases : .name)
         DispatchQueue.main.async { [weak self] in
             self?.data = data
         }
-    }
-    
-    func get(municipio: String) -> Municipio {
-        service.getData(municipio: municipio)
     }
 }
