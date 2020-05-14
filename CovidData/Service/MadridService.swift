@@ -32,12 +32,12 @@ class MadridService {
         }
     }
     
-    enum municipioOrder: String {
+    enum MunicipioOrder: String {
         case name
         case totalCases
     }
     
-    func getMunicipios(by order: municipioOrder) -> [Municipio] {
+    func getMunicipios(by order: MunicipioOrder) -> [Municipio] {
         var municipios = [Municipio]()
         var elements = Set<String>()
         allData.forEach({elements.insert($0.codigo_geometria?.trimmingCharacters(in: .whitespaces) ?? "")})

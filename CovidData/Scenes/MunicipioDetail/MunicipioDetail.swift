@@ -12,7 +12,5 @@ struct MunicipioDetail: View {
             }
         }
         .navigationBarTitle(Text(viewModel.municipio.name.trimmingCharacters(in: .whitespaces)))
-
     }
-    
 }
