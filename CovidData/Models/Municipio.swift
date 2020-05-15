@@ -5,10 +5,10 @@ struct Municipio: Codable, Hashable, Identifiable {
     var data: [DailyData]
     
     var name: String {
-        return data.last?.municipio_distrito ?? "-"
+        return data.first?.municipio_distrito ?? "-"
     }
     var lastDate: String {
-        return data.last?.dia ?? "-"
+        return data.first?.dia ?? "-"
     }
     var tasaIncidenciaAcumuladaUltimos14dias: String {
         return data.first?.tasaIncidenciaAcumuladaUltimos14dias ?? "-"

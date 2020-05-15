@@ -31,7 +31,8 @@ struct DailyData: Codable, Hashable, Identifiable {
     var dia: String {
         guard let fecha = fecha else { return "-" }
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyy"
+        formatter.dateFormat = "d MMM"
+        formatter.locale = Locale.init(identifier: "es")
         return formatter.string(from: fecha)
     }
 

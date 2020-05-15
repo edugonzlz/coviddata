@@ -1,10 +1,11 @@
 import Foundation
 import SwiftUI
 
-struct MunicipioDetail: View {
+struct MunicipioDetailView: View {
     
     @ObservedObject var viewModel: MunicipioDetailViewModel
-    
+    @State var chartPresented = false
+
     var body: some View {
         NavigationView {
             List(viewModel.municipio.data) { (day: DailyData) in
@@ -12,5 +13,11 @@ struct MunicipioDetail: View {
             }
         }
         .navigationBarTitle(Text(viewModel.municipio.name.trimmingCharacters(in: .whitespaces)))
+        .navigationBarItems(trailing:
+            Button("Gráfico") { self.chartPresented.toggle() }
+                .sheet(isPresented: $chartPresented) {
+                    MunicipioChartView(viewModel: MunicipioChartViewModel(municipio: self.viewModel.municipio))
+                }
+        )
     }
 }

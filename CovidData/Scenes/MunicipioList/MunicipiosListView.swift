@@ -7,7 +7,7 @@ struct MunicipiosListView: View {
     var body: some View {
         NavigationView {
             List(viewModel.data) { municipio in
-                NavigationLink(destination: MunicipioDetail(viewModel: MunicipioDetailViewModel(municipio: municipio))) {
+                NavigationLink(destination: MunicipioDetailView(viewModel: MunicipioDetailViewModel(municipio: municipio))) {
                     MunicipioRow(municipio: municipio)
                 }
             }
