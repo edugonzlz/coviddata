@@ -8,7 +8,7 @@ struct DayRow: View {
         HStack {
             Text(dailyData.dia)
             Spacer()
-            VStack {
+            VStack(alignment: .trailing) {
                 Text("Total afectados: \(dailyData.casosConfirmadosTotales)")
                 Text("Últimos 14 dias: \(dailyData.casosConfirmadosUltimos14dias)")
             }

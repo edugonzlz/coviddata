@@ -6,15 +6,15 @@ struct MunicipioRow: View {
 
     var body: some View {
         HStack {
-            VStack {
+            VStack(alignment: .leading) {
                 Text(municipio.name)
                 Text(municipio.lastDate)
                     .font(Font.system(size: 10))
-            }.multilineTextAlignment(.leading)
+            }
             
             Spacer()
             
-            VStack {
+            VStack(alignment: .trailing) {
                 Text("Total afectados: " + municipio.casosConfirmadosTotales)
                 Text("Últimos 14 dias: " + municipio.casosConfirmadosUltimos14dias)
                 }.multilineTextAlignment(.trailing)
