@@ -39,6 +39,6 @@ class ChartValueFormatter: NSObject, IAxisValueFormatter {
         guard let data = data else {
             return ""
         }
-        return data[Int(value)].dia
+        return data[Int(value)].diaMes
     }
 }

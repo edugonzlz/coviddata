@@ -28,7 +28,7 @@ struct DailyData: Codable, Hashable, Identifiable {
         return formatter.date(from: fecha_informe)
     }
     
-    var dia: String {
+    var diaMes: String {
         guard let fecha = fecha else { return "-" }
         let formatter = DateFormatter()
         formatter.dateFormat = "d MMM"

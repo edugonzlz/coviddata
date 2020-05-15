@@ -28,6 +28,9 @@
 		64C4145C246E8BAA007A79D3 /* MunicipioChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4145B246E8BAA007A79D3 /* MunicipioChartViewModel.swift */; };
 		64C4145E246EA076007A79D3 /* DefaultChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4145D246EA076007A79D3 /* DefaultChartView.swift */; };
 		64C41460246EA0B0007A79D3 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4145F246EA0B0007A79D3 /* ChartViewModel.swift */; };
+		64C41463246EFBF8007A79D3 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C41462246EFBF8007A79D3 /* DatabaseManager.swift */; };
+		64C41465246EFDAE007A79D3 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C41464246EFDAE007A79D3 /* Storage.swift */; };
+		64C41467246F08F6007A79D3 /* Date+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C41466246F08F6007A79D3 /* Date+extension.swift */; };
 		FFE8BAC514480A929A104F79 /* Pods_CovidData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA8D82DA6AB427C27892AA0 /* Pods_CovidData.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +59,9 @@
 		64C4145B246E8BAA007A79D3 /* MunicipioChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MunicipioChartViewModel.swift; sourceTree = "<group>"; };
 		64C4145D246EA076007A79D3 /* DefaultChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultChartView.swift; sourceTree = "<group>"; };
 		64C4145F246EA0B0007A79D3 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
+		64C41462246EFBF8007A79D3 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		64C41464246EFDAE007A79D3 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		64C41466246F08F6007A79D3 /* Date+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+extension.swift"; sourceTree = "<group>"; };
 		9CB3BEC11D5F479D06125E44 /* Pods-CovidData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidData.release.xcconfig"; path = "Target Support Files/Pods-CovidData/Pods-CovidData.release.xcconfig"; sourceTree = "<group>"; };
 		DF152666002F59C7C14DA617 /* Pods-CovidData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidData.debug.xcconfig"; path = "Target Support Files/Pods-CovidData/Pods-CovidData.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,10 +104,8 @@
 				646945AB246D89B700076EB5 /* Service */,
 				646945DB246DB4E600076EB5 /* Manager */,
 				646945B0246D89BE00076EB5 /* Models */,
-				6469459D246D896200076EB5 /* Assets.xcassets */,
-				646945E3246DBA1D00076EB5 /* DummyData.swift */,
-				646945A2246D896200076EB5 /* LaunchScreen.storyboard */,
-				646945A5246D896200076EB5 /* Info.plist */,
+				64C41468246F0900007A79D3 /* Extensions */,
+				64C41469246F0913007A79D3 /* Resources */,
 				6469459F246D896200076EB5 /* Preview Content */,
 			);
 			path = CovidData;
@@ -138,6 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				646945AC246D89B700076EB5 /* RequestManager.swift */,
+				64C41462246EFBF8007A79D3 /* DatabaseManager.swift */,
+				64C41464246EFDAE007A79D3 /* Storage.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -189,6 +195,25 @@
 				64C4145F246EA0B0007A79D3 /* ChartViewModel.swift */,
 			);
 			path = Chart;
+			sourceTree = "<group>";
+		};
+		64C41468246F0900007A79D3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				64C41466246F08F6007A79D3 /* Date+extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		64C41469246F0913007A79D3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6469459D246D896200076EB5 /* Assets.xcassets */,
+				646945E3246DBA1D00076EB5 /* DummyData.swift */,
+				646945A2246D896200076EB5 /* LaunchScreen.storyboard */,
+				646945A5246D896200076EB5 /* Info.plist */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		86C70965A27FCF9B716D7FCB /* Frameworks */ = {
@@ -332,11 +357,14 @@
 				647D15FC246DEEBE00D5FB58 /* DayRow.swift in Sources */,
 				646945AF246D89B700076EB5 /* MadridService.swift in Sources */,
 				646945B8246D89BE00076EB5 /* Municipio.swift in Sources */,
+				64C41465246EFDAE007A79D3 /* Storage.swift in Sources */,
 				646945E2246DB9A000076EB5 /* MunicipioRow.swift in Sources */,
 				648E1795246DF22B0073225E /* MunicipioDetailViewModel.swift in Sources */,
 				6469459C246D896100076EB5 /* MunicipiosListView.swift in Sources */,
+				64C41467246F08F6007A79D3 /* Date+extension.swift in Sources */,
 				641AAE8F246DBE1E00231A1D /* MunicipiosListViewModel.swift in Sources */,
 				646945B6246D89BE00076EB5 /* DailyData.swift in Sources */,
+				64C41463246EFBF8007A79D3 /* DatabaseManager.swift in Sources */,
 				646945B7246D89BE00076EB5 /* MadridData.swift in Sources */,
 				64C41460246EA0B0007A79D3 /* ChartViewModel.swift in Sources */,
 				646945AE246D89B700076EB5 /* RequestManager.swift in Sources */,

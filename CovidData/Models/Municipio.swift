@@ -8,7 +8,7 @@ struct Municipio: Codable, Hashable, Identifiable {
         return data.first?.municipio_distrito ?? "-"
     }
     var lastDate: String {
-        return data.first?.dia ?? "-"
+        return data.first?.diaMes ?? "-"
     }
     var tasaIncidenciaAcumuladaUltimos14dias: String {
         return data.first?.tasaIncidenciaAcumuladaUltimos14dias ?? "-"

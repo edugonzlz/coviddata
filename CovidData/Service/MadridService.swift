@@ -8,38 +8,32 @@ class MadridService {
         case name
         case totalCases
     }
-
+    
     // MARK: - Private
     private let rm = RequestManager()
+    
     private let dataUrl = "https://datos.comunidad.madrid/catalogo/dataset/7da43feb-8d4d-47e0-abd5-3d022d29d09e/resource/ead67556-7e7d-45ee-9ae5-68765e1ebf7a/download/covid19_tia_muni_y_distritos.json"
+    private let localDataName = "madrid_data"
     private var allData = [DailyData]()
-
+    
     // MARK: - init
     private init() {}
     
     // MARK: - get data
     func getData(completion: @escaping (Result<[DailyData], Error>) -> Void) {
-        guard let url = URL(string: dataUrl) else {
-            return completion(.failure(LocalError.unknown))
-        }
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        
-        rm.get(request: request) { result in
-            switch result {
-            case .success(let data):
-                if let allData = try? JSONDecoder().decode(MadridData.self, from: data) {
-                    self.allData = allData.data
-                    completion(.success(allData.data))
-                } else {
-                    completion(.success([]))
-                }
-            case .failure(let error):
-                completion(.failure(error))
+        if let localData = Storage.retrieve(localDataName, from: .documents, as: [DailyData].self) {
+            if let lastDate = localData.first?.fecha, needRefresh(lastDate: lastDate) {
+                getRemoteData(completion: completion)
+            } else {
+                self.allData = localData
+                completion(.success(localData))
             }
+        } else {
+            getRemoteData(completion: completion)
         }
     }
     
+    // TODO: - entregar desde base de datos
     func getMunicipios(by order: MunicipioOrder = .name) -> [Municipio] {
         let municipios = getMunicipios()
         switch order {
@@ -59,6 +53,28 @@ class MadridService {
 }
 
 private extension MadridService {
+    func getRemoteData(completion: @escaping (Result<[DailyData], Error>) -> Void) {
+        guard let url = URL(string: dataUrl) else {
+            return completion(.failure(LocalError.unknown))
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        rm.get(request: request) { result in
+            switch result {
+            case .success(let data):
+                guard let allData = try? JSONDecoder().decode(MadridData.self, from: data) else {
+                    return completion(.failure(LocalError.unknown))
+                }
+                self.allData = allData.data
+                Storage.store(allData.data, to: .documents, as: self.localDataName)
+                completion(.success(allData.data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
     func getMunicipios() -> [Municipio] {
         var municipios = [Municipio]()
         var elements = Set<String>()
@@ -70,4 +86,17 @@ private extension MadridService {
         }
         return municipios
     }
+    
+    func needRefresh(lastDate: Date) -> Bool {
+         let now = Date()
+         //si es de otro dia, refrescar
+         if lastDate.day() != now.day() {
+             return true
+         }
+         //mismo dia, pasadas las 10, no refrescar
+         if now.hour() > lastDate.hour() {
+             return false
+         }
+         return true
+     }
 }

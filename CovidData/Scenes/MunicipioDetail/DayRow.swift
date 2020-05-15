@@ -6,7 +6,7 @@ struct DayRow: View {
     
     var body: some View {
         HStack {
-            Text(dailyData.dia)
+            Text(dailyData.diaMes)
             Spacer()
             VStack(alignment: .trailing) {
                 Text("Total afectados: \(dailyData.casosConfirmadosTotales)")
