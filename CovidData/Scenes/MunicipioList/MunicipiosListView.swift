@@ -11,7 +11,7 @@ struct MunicipiosListView: View {
                     MunicipioRow(municipio: municipio)
                 }
             }
-            .navigationBarTitle(Text("Municipios"))
+            .navigationBarTitle(Text("Municipios (\(viewModel.data.count))"))
             .navigationBarItems(trailing:
                 HStack {
                     Toggle(isOn: $viewModel.orderByTotalCases) {
