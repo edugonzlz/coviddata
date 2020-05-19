@@ -508,14 +508,14 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CovidData/Preview Content\"";
-				DEVELOPMENT_TEAM = CBMDJ4F8QJ;
+				DEVELOPMENT_TEAM = 9RKYMY4JP9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CovidData/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.edugonzlz.coviddata;
+				PRODUCT_BUNDLE_IDENTIFIER = com.magrolaura.coviddata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -531,14 +531,14 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"CovidData/Preview Content\"";
-				DEVELOPMENT_TEAM = CBMDJ4F8QJ;
+				DEVELOPMENT_TEAM = 9RKYMY4JP9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CovidData/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.edugonzlz.coviddata;
+				PRODUCT_BUNDLE_IDENTIFIER = com.magrolaura.coviddata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
