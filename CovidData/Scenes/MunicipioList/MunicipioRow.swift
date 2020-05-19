@@ -16,8 +16,10 @@ struct MunicipioRow: View {
             
             VStack(alignment: .trailing) {
                 Text("Total afectados: " + municipio.casosConfirmadosTotales)
+                Text("Tasa de incidencia: " + municipio.tasaIncidenciaAcumuladaTotal)
                 Text("Últimos 14 dias: " + municipio.casosConfirmadosUltimos14dias)
-                }.multilineTextAlignment(.trailing)
+                Text("Tasa últimos 14 dias: " + municipio.tasaIncidenciaAcumuladaUltimos14dias)
+                }
                 .font(Font.system(size: 12))
         }
     }
